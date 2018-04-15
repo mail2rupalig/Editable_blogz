@@ -40,6 +40,7 @@ def new_post():
             error_exists = True
         
         if not error_exists :
+
             blog = Blog(title, bodytext)
             db.session.add(blog)
             db.session.commit()
@@ -58,7 +59,7 @@ def index():
     blogid = request.args.get('id')
     #print('blogid = ',blogid)
     if not blogid:
-        posted_blogs = Blog.query.all()
+        posted_blogs = Blog.query.order_by(Blog.id.desc()).all()
         return render_template('homepage.html', title="Build-A-Blog!", 
             posted_blogs = posted_blogs)
     

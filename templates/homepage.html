@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1>Build-A-Blog!</h1>
+<center><h1>Build-A-Blog!</h1></center>
 
 <h2></h2>
 
@@ -12,15 +12,15 @@
 
 
     <ul>
-        {% for blog in posted_blogs %}
+        {% for blog in posted_blogs %}<hr>
         <a href="{{'/blog?id=%s'%blog.id}}">
             
-            {{blog.title}}
-        </a>
-                                
+          <h3>  {{blog.title}}</h3>
+        </a>                      
         <p>  
-        {{blog.bodytext}}</li></p>
+        {{blog.bodytext}}</p>
         {% endfor %}
+        <hr>
     </ul>
 
     {% endif %}
