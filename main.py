@@ -122,13 +122,7 @@ def signup():
 
     return render_template('signup.html')
 
-    # Validate 4  
-    
-    #if not username_error and not password_error and not verifypassword_error:
-       #return redirect('/newpost?user={0}'.format(username))
-    #else:
-        #return render_template('newblog.html',title="signup",username_error=username_error,password_error=password_error,verifypassword_error=verifypassword_error,username=username)  
-
+ 
 @app.route('/logout')
 def logout():
     del session['username']
@@ -183,8 +177,6 @@ def list_blogs():
     blogid = request.args.get('id')
     username = request.args.get('user')
 
-    #owner = User.query.filter_by(username=session['username']).first()
-    #print('blogid = ',blogid)
     if not blogid and not username:
         posted_blogs = db.session.query(User.username,Blog.title,Blog.bodytext,Blog.id).join(Blog).all()
         return render_template('blog.html', title="All blogs", 
